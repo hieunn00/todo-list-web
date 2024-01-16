@@ -60,4 +60,4 @@ Feel free to contribute to this project by creating issues or submitting pull re
 ## License 
 This project is licensed under the MIT License.
 ## Contact
-For questions or feedback, you can reach us at me hieunguyen7600@gmail.com
+For questions or feedback, you can reach at me hieunguyen7600@gmail.com
