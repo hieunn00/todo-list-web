@@ -1,18 +1,37 @@
-
 <template>
-  <div id="app">
-    <h1>Todo List</h1>
-    <div>
-      <input v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task" />
-      <button @click="addTask" :disabled="!newTask.trim()">Add</button>
+  <div id="app" class="w-full h-full p-4 bg-gray-100">
+    <h1 class="text-3xl text-green-700 mb-4 font-bold text-center">Todo List</h1>
+    <div class="flex mb-4">
+      <div class="flex-grow mx-auto w-1/2">
+        <input
+          v-model="newTask"
+          @keyup.enter="addTask"
+          placeholder="Add a new task"
+          class="w-full border border-gray-300 px-3 py-2 rounded-l focus:outline-none text-center"
+        />
+      </div>
+      <button
+        @click="addTask"
+        :disabled="!newTask.trim()"
+        class="bg-green-600 text-white px-4 py-2 rounded-r"
+      >
+        Add
+      </button>
     </div>
 
-    
     <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <input type="checkbox" v-model="task.completed" @change="updateTask(task)" />
-        {{ task.task }}
-        <button @click="deleteTask(task.id)">Delete</button>
+      <li v-for="task in tasks" :key="task.id" class="flex items-center justify-between bg-white p-3 mb-2 shadow-md rounded mx-auto w-1/2">
+        <div class="flex items-center space-x-4">
+          <input
+            type="checkbox"
+            v-model="task.completed"
+            @change="updateTask(task)"
+            class="form-checkbox h-5 w-5 accent-green-300 focus:accent-green-500 transition duration-150 ease-in-out text"
+          />
+          <input type="text" v-model="task.task" @change="updateTask(task)" class="border-none focus:outline-none w-full" />
+          
+        </div>
+        <button @click="deleteTask(task.id)" class="text-red-600">Delete</button>
       </li>
     </ul>
   </div>
